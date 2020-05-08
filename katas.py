@@ -3,7 +3,24 @@
 
 def function_test():
     """Test functions here"""
-    print(alphabet_position("The sunset sets at twelve o' clock."))
+    print(friend(["Ryan", "Kieran", "Mark"]))
+
+
+def friend(input_list):
+    """Kata: Friend or Foe?
+    
+    Takes list, filters out only strings with 4 letters
+    """
+    # create a new list for the output
+    friends = []
+    # loop through input list
+    for element in input_list:
+        # has element 4 letters?
+        if len(element) == 4:
+            # append element to a new list
+            friends.append(element)
+    # return new list
+    return friends
 
 
 def alphabet_position(text):
