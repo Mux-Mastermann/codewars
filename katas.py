@@ -11,17 +11,12 @@ def longest(s1, s2):
 
     Take two strings of letters. Return a sorted string of distinct letters.
     """
-    # combine the two strings into one
-    s = s1 + s2
-    # convert to a string of distinct letters
-    s = set(s)
-    print(s)
-    s = list(s)
-    print(s.sort())
-    s = "".join(s)
-    # sort the distinct string in alphabettical order
-    
-    return s
+    # combine the two strings, make a set of unique chars, then make a list
+    s = list(set(s1 + s2))
+    # sort unique char list
+    s.sort()
+    return "".join(s)
+
 
 def friend(input_list):
     """Kata: Friend or Foe?
