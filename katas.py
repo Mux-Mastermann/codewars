@@ -3,12 +3,29 @@
 
 def function_test():
     """Test functions here"""
-    print(friend(["Ryan", "Kieran", "Mark"]))
+    print(longest("aretheyhere", "yestheyarehere"))
 
+
+def longest(s1, s2):
+    """Kata: Two to One
+
+    Take two strings of letters. Return a sorted string of distinct letters.
+    """
+    # combine the two strings into one
+    s = s1 + s2
+    # convert to a string of distinct letters
+    s = set(s)
+    print(s)
+    s = list(s)
+    print(s.sort())
+    s = "".join(s)
+    # sort the distinct string in alphabettical order
+    
+    return s
 
 def friend(input_list):
     """Kata: Friend or Foe?
-    
+
     Takes list, filters out only strings with 4 letters
     """
     # create a new list for the output
