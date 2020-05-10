@@ -3,7 +3,15 @@
 
 def function_test():
     """Test functions here"""
-    print(longest("aretheyhere", "yestheyarehere"))
+    print(array_diff([1,2,2,2,3],[2]))
+
+
+def array_diff(a, b):
+    """Kata: Array.diff
+
+    Takes two lists. Removes all values from list a, that are in list b.
+    """
+    return [item for item in a if item not in b]
 
 
 def longest(s1, s2):
