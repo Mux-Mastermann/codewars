@@ -23,6 +23,26 @@ def likes(names):
         return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
 
 
+def array_diff(a, b):
+    """Kata: Array.diff
+
+    Takes two lists. Removes all values from list a, that are in list b.
+    """
+    return [item for item in a if item not in b]
+
+
+def longest(s1, s2):
+    """Kata: Two to One
+
+    Take two strings of letters. Return a sorted string of distinct letters.
+    """
+    # combine the two strings, make a set of unique chars, then make a list
+    s = list(set(s1 + s2))
+    # sort unique char list
+    s.sort()
+    return "".join(s)
+
+
 def friend(input_list):
     """Kata: Friend or Foe?
 
