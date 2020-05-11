@@ -3,12 +3,29 @@
 
 def function_test():
     """Test functions here"""
-    print(friend(["Ryan", "Kieran", "Mark"]))
+    print(likes([]))
+
+
+def likes(names):
+    """Kata: Who likes it?
+
+    Takes Array of names. Returns Facebook like string telling who likes it
+    """
+    if len(names) == 0:
+        return "no one likes this"
+    elif len(names) == 1:
+        return f"{names[0]} likes this"
+    elif len(names) == 2:
+        return f"{names[0]} and {names[1]} like this"
+    elif len(names) == 3:
+        return f"{names[0]}, {names[1]} and {names[2]} like this"
+    else:
+        return f"{names[0]}, {names[1]} and {len(names) - 2} others like this"
 
 
 def friend(input_list):
     """Kata: Friend or Foe?
-    
+
     Takes list, filters out only strings with 4 letters
     """
     # create a new list for the output
