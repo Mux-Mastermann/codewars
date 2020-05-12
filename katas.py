@@ -3,7 +3,29 @@
 
 def function_test():
     """Test functions here"""
-    print(likes([]))
+    print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
+
+
+def dirReduc(arr):
+    """kata: Directions Reduction
+
+    Takes array of directions. Removes unneccessary oppositive directions next to each other
+    """
+    # creating compare lists
+    horizontal = ["WEST", "EAST"]
+    vertical = ["NORTH", "SOUTH"]
+    # Remove indicator
+    i = 0
+    # creating slice of input arr
+    while True:
+        check = arr[i:i+2]
+        if not check:
+            return arr
+        if check in [horizontal, horizontal[::-1], vertical, vertical[::-1]]:
+            [arr.pop(i) for _ in range (2)]
+            i = 0
+            continue
+        i += 1
 
 
 def likes(names):
