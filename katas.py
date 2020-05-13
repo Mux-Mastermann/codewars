@@ -3,7 +3,17 @@
 
 def function_test():
     """Test functions here"""
-    print(dirReduc(["NORTH", "SOUTH", "SOUTH", "EAST", "WEST", "NORTH", "WEST"]))
+    print(find_outlier([2, 4, 0, 100, 4, 11, 2602, 36]))
+
+
+def find_outlier(integers):
+    """kata: Find The Parity Outlier
+
+    Input Array of integers. Only one integer is different. Either even or odd. Return this one
+    """
+    modulo_integers = [i % 2 for i in integers]
+    n = 0 if modulo_integers.count(0) == 1 else 1
+    return integers[modulo_integers.index(n)]
 
 
 def dirReduc(arr):
