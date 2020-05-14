@@ -3,7 +3,12 @@
 
 def function_test():
     """Test functions here"""
-    print(find_outlier([2, 4, 0, 100, 4, 11, 2602, 36]))
+    print(order_weight("2000 10003 1234000 44444444 9999 11 11 22 123"))
+
+
+def order_weight(strng):
+    """Kata: Weight for weight"""
+    return " ".join(sorted(strng.split(), key=lambda string: (sum(int(i) for i in string), string)))
 
 
 def find_outlier(integers):
