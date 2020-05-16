@@ -3,7 +3,16 @@
 
 def function_test():
     """Test functions here"""
-    print(find_even_index([1,2,3,4,3,2,1]))
+    print(queue_time([], 1))
+
+
+def queue_time(customers, n):
+    """Kata: The Supermarket Queue"""
+    queues = [0 for _ in range(n)]
+    for customer in customers:
+        i = queues.index(min(queues))
+        queues[i] += customer
+    return max(queues)
 
 
 def find_even_index(arr):
