@@ -3,7 +3,24 @@
 
 def function_test():
     """Test functions here"""
-    print(queue_time([], 1))
+    print(valid_parentheses("hi())("))
+
+
+def valid_parentheses(string):
+    """Kata: Valid Parentheses"""
+    # check if amount of opening and closing parantheses is equal, else return false
+    if string.count("(") != string.count(")"):
+        return False
+    # loop through string
+    for i, character in enumerate(string):
+        # if found ")" check if at this point there are more or equal amount of "("
+        if character == ")":
+            if string[:i].count("(") < string[:i].count(")"):
+                return False
+        if character == "(":
+            if string[i:].count("(") > string[i:].count(")"):
+                return False
+    return True
 
 
 def queue_time(customers, n):
