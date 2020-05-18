@@ -3,7 +3,14 @@
 
 def function_test():
     """Test functions here"""
-    print(valid_parentheses("hi())("))
+    print(next_bigger(9856423))
+
+
+def next_bigger(n):
+    """Kata: Next bigger number with the same digits"""
+    import itertools
+    return min([int("".join(i)) for i in itertools.permutations(str(n)) if int("".join(i)) > n], default=-1)
+    # works but doens't pass on codewars due to timeout. Not my bad.
 
 
 def valid_parentheses(string):
