@@ -3,7 +3,20 @@
 
 def function_test():
     """Test functions here"""
-    print(next_bigger(9856423))
+    print(list_squared(1, 50))
+
+
+def list_squared(m, n):
+    """Kata: Integers: Recreation One"""
+    from math import sqrt
+    results = []
+    for i in range(m, n + 1):
+        divisors = [x for x in range(1, i + 1) if i % x == 0]
+        squared_divisors = [number * number for number in divisors]
+        squared_divisors_sum = sum(squared_divisors)
+        if sqrt(squared_divisors_sum) % 1 == 0:
+            results.append([i, squared_divisors_sum]) 
+    return results
 
 
 def next_bigger(n):
