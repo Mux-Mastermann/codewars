@@ -11,9 +11,7 @@ def list_squared(m, n):
     from math import sqrt
     results = []
     for i in range(m, n + 1):
-        divisors = [x for x in range(1, i + 1) if i % x == 0]
-        squared_divisors = [number * number for number in divisors]
-        squared_divisors_sum = sum(squared_divisors)
+        squared_divisors_sum = sum([x ** 2 for x in range(1, i + 1) if i % x == 0])
         if sqrt(squared_divisors_sum) % 1 == 0:
             results.append([i, squared_divisors_sum]) 
     return results
