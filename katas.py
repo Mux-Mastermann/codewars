@@ -3,7 +3,18 @@
 
 def function_test():
     """Test functions here"""
-    print(next_bigger(9856423))
+    print(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
+
+
+def anagrams(word, words):
+    """Kata: Where my anagrams at?"""
+    results = []
+    dist_letter = [(letter, word.count(letter)) for letter in set(word)]
+    for word in words:
+        check_letter = [(letter, word.count(letter)) for letter in set(word)]
+        if sorted(dist_letter, key=lambda x: x[0]) == sorted(check_letter, key=lambda x: x[0]):
+            results.append(word)
+    return results
 
 
 def next_bigger(n):
