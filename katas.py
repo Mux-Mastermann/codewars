@@ -3,7 +3,18 @@
 
 def function_test():
     """Test functions here"""
-    print(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']))
+    print(move_zeros([False,1,0.0,1,2,0,1,3,"a"]))
+
+
+def move_zeros(array):
+    """Kata: Moving Zeros To The End"""
+    result = []
+    for element in array[::-1]:
+        if element == 0 and element is not False:
+            result.append(element)
+        else:
+            result.insert(0, element)
+    return result
 
 
 def anagrams(word, words):
