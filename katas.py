@@ -3,7 +3,22 @@
 
 def function_test():
     """Test functions here"""
-    print(move_zeros([False,1,0.0,1,2,0,1,3,"a"]))
+    print(is_solved([[0,1,1], [2,0,2], [2,1,0]]))
+
+
+def is_solved(board):
+    """Kata: Tic-Tac-Toe Checker"""
+    board_list = [cell for line in board for cell in line]
+    check_indices = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+    for indices in check_indices:
+        slice_set = set([board_list[i] for i in indices])
+        if 0 in slice_set:
+            continue
+        if len(slice_set) == 1:
+            return board_list[indices[0]]
+    if 0 not in board_list:
+        return 0
+    return -1
 
 
 def move_zeros(array):
