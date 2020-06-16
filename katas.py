@@ -3,7 +3,22 @@
 
 def function_test():
     """Test functions here"""
-    print(list_squared(1, 50))
+    print(josephus([1,2,3,4,5,6,7,8,9,10],2))
+
+
+def josephus(items, k):
+    """Kata: Josephus Permutation"""
+    result = []
+    index = 0
+    while len(items) != 0:
+        for _ in range(k):
+            if index == len(items):
+                index = 0
+            index += 1
+        result.append(items[index - 1])
+        items.pop(index - 1)
+        index -= 1
+    return result
 
 
 def list_squared(m, n):
