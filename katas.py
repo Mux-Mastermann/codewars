@@ -14,6 +14,42 @@ def list_squared(m, n):
         squared_divisors_sum = sum([x ** 2 for x in range(1, i + 1) if i % x == 0])
         if sqrt(squared_divisors_sum) % 1 == 0:
             results.append([i, squared_divisors_sum]) 
+
+
+def is_solved(board):
+    """Kata: Tic-Tac-Toe Checker"""
+    board_list = [cell for line in board for cell in line]
+    check_indices = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]]
+    for indices in check_indices:
+        slice_set = set([board_list[i] for i in indices])
+        if 0 in slice_set:
+            continue
+        if len(slice_set) == 1:
+            return board_list[indices[0]]
+    if 0 not in board_list:
+        return 0
+    return -1
+
+
+def move_zeros(array):
+    """Kata: Moving Zeros To The End"""
+    result = []
+    for element in array[::-1]:
+        if element == 0 and element is not False:
+            result.append(element)
+        else:
+            result.insert(0, element)
+    return result
+
+
+def anagrams(word, words):
+    """Kata: Where my anagrams at?"""
+    results = []
+    dist_letter = [(letter, word.count(letter)) for letter in set(word)]
+    for word in words:
+        check_letter = [(letter, word.count(letter)) for letter in set(word)]
+        if sorted(dist_letter, key=lambda x: x[0]) == sorted(check_letter, key=lambda x: x[0]):
+            results.append(word)
     return results
 
 
