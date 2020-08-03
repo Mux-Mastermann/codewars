@@ -3,7 +3,20 @@
 
 def function_test():
     """Test functions here"""
-    print(josephus([1,2,3,4,5,6,7,8,9,10],2))
+    print(rgb(-20, 275, 125))
+
+
+def rgb(r, g, b):
+    """Kata: RGB To Hex Conversion"""
+    results = []
+    for x in [r, g, b]:
+        if x < 0:
+            x = 0
+        elif x > 255:
+            x = 255
+        results.append(hex(x)[2:].zfill(2))
+    return "".join(results).upper()
+
 
 
 def josephus(items, k):
