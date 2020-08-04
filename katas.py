@@ -1,4 +1,4 @@
-"""This file contains different solution functions from codewars challenges"""
+"""This file contains different solution functions from codewars challenges for python"""
 
 
 def function_test():
