@@ -25,7 +25,7 @@ WHERE
   );
 
 
-  -- Kata: SQL Basics: Up and Down
+-- Kata: SQL Basics: Up and Down
 SELECT 
   CASE
     WHEN SUM(number1) % 2 = 0 THEN MAX(number1)
@@ -37,4 +37,15 @@ SELECT
   END AS number2
 FROM
   numbers;
+
+
+-- SQL Basics: Create a FUNCTION (DATES)
+-- NOT SOLVED YET
+CREATE FUNCTION agecalculator(birthday date)
+RETURNS int AS
+DECLARE Age int;
+BEGIN
+  SET Age = DATEDIFF(yy, birthday, NOW()) 
+  RETURN Age
+END;
       
