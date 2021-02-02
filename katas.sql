@@ -67,3 +67,25 @@ WITH special_sales AS (
 )
 
 SELECT * FROM departments WHERE id IN (SELECT department_id FROM special_sales);
+
+
+-- SQL Basics: Simple VIEW
+CREATE VIEW members_approved_for_voucher AS
+-- Total sales by members
+SELECT s.member_id, SUM(p.price) AS total_spending
+FROM sales s
+LEFT JOIN products p ON s.product_id = p.id
+WHERE s.department_id IN(
+  -- Total sales by department  
+  SELECT s.department_id 
+  FROM sales s 
+  LEFT JOIN products p ON s.product_id = p.id 
+  GROUP BY s.department_id 
+  HAVING SUM(p.price) > 10000)
+GROUP BY s.member_id
+HAVING SUM(p.price) > 1000;
+
+SELECT member_id AS id, m.name, m.email, total_spending 
+FROM members_approved_for_voucher
+JOIN members m ON members_approved_for_voucher.member_id = m.id
+ORDER BY id; 
