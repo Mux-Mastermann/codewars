@@ -89,3 +89,15 @@ SELECT member_id AS id, m.name, m.email, total_spending
 FROM members_approved_for_voucher
 JOIN members m ON members_approved_for_voucher.member_id = m.id
 ORDER BY id; 
+
+
+-- SQL Statistics: MIN, MEDIAN, MAX
+-- NOT SOLVED YET
+SELECT 
+  MIN(score),
+  CASE
+    WHEN COUNT(id) % 2 = 1 THEN (SELECT score FROM result ORDER BY score LIMIT (COUNT(id) + 1) / 2 OFFSET (COUNT(id) - 1) / 2)
+    ELSE (SELECT AVG(score) FROM result ORDER BY score LIMIT (COUNT(id) / 2) + 1 OFFSET (COUNT(id) / 2) - 1)
+  END AS median, 
+  MAX(score)
+FROM result;
