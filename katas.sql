@@ -101,3 +101,15 @@ SELECT
   END AS median, 
   MAX(score)
 FROM result;
+
+
+-- SQL Bug Fixing: Fix the QUERY - Totaling
+SELECT 
+  CAST(s.transaction_date AS date) as day,
+  d.name AS department,
+  COUNT(s.id) AS sale_count
+FROM department d
+JOIN sale s on d.id = s.department_id
+GROUP BY CAST(s.transaction_date AS date), d.name
+ORDER BY day ASC;
+
