@@ -113,3 +113,19 @@ JOIN sale s on d.id = s.department_id
 GROUP BY CAST(s.transaction_date AS date), d.name
 ORDER BY day ASC;
 
+
+-- SQL Basics: Simple table totaling
+SELECT
+  RANK() OVER(
+    ORDER BY SUM(points) DESC
+  ),
+  CASE
+    WHEN clan = '' THEN '[no clan specified]'
+    ELSE clan
+  END AS clan,
+  SUM(points) AS total_points,
+  COUNT(name) AS total_people
+FROM people
+GROUP BY clan
+ORDER BY SUM(points) DESC;
+
