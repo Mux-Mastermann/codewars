@@ -129,3 +129,14 @@ FROM people
 GROUP BY clan
 ORDER BY SUM(points) DESC;
 
+
+-- Relational division: Find all movies two actors cast in together
+SELECT f.title
+FROM film f
+WHERE f.film_id IN (
+  SELECT film_id FROM film_actor WHERE actor_id = 105 AND film_id IN (
+    SELECT film_id FROM film_actor WHERE actor_id = 122
+  )
+)
+ORDER BY f.title;
+
