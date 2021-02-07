@@ -140,3 +140,14 @@ WHERE f.film_id IN (
 )
 ORDER BY f.title;
 
+
+-- SQL Basics: Simple PIVOTING data WITHOUT CROSSTAB
+SELECT
+  p.name, 
+  COUNT(CASE WHEN d.detail = 'good' THEN d.id END) AS good,
+  COUNT(CASE WHEN d.detail = 'ok' THEN d.id END) AS ok,
+  COUNT(CASE WHEN d.detail = 'bad' THEN d.id END) AS bad
+FROM products p
+LEFT JOIN details d ON p.id = d.product_id 
+GROUP BY p.name
+ORDER BY p.name;
