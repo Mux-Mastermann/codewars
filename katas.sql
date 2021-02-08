@@ -151,3 +151,13 @@ FROM products p
 LEFT JOIN details d ON p.id = d.product_id 
 GROUP BY p.name
 ORDER BY p.name;
+
+
+-- Calculating Batting Average
+SELECT
+  player_name,
+  games,
+  CAST(ROUND(CAST(CAST(hits AS float) / CAST(at_bats AS float) AS numeric), 3) AS text) AS batting_average
+FROM yankees
+WHERE NOT at_bats < 100
+ORDER BY batting_average DESC;
