@@ -161,3 +161,18 @@ SELECT
 FROM yankees
 WHERE NOT at_bats < 100
 ORDER BY batting_average DESC;
+
+
+-- Present JSON data the SQL way
+SELECT
+  data ->> 'first_name' AS first_name,
+  data ->> 'last_name' AS last_name,
+  date_part('year', age(NOW()::timestamp, (data ->> 'date_of_birth')::date))::int AS age,
+  CASE 
+    WHEN data ->> 'private' = 'true' THEN 'Hidden'
+    WHEN data ->> 'email_addresses' = '[]' THEN 'None'
+    ELSE data#>>'{email_addresses, 0}'
+  END AS email_address 
+FROM users
+ORDER BY first_name, last_name;
+
