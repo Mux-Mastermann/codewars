@@ -181,3 +181,12 @@ ORDER BY first_name, last_name;
 SELECT age, COUNT(id) AS people_count
 FROM people
 GROUP BY age;
+
+
+-- SQL: Regex Replace
+SELECT
+  project,
+  commits,
+  contributors,
+  REGEXP_REPLACE(address, '[0-9]' , '!', 'g') AS address
+FROM repositories
