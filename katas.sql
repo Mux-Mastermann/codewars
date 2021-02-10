@@ -176,3 +176,8 @@ SELECT
 FROM users
 ORDER BY first_name, last_name;
 
+
+-- SQL Basics: Simple GROUP BY
+SELECT age, COUNT(id) AS people_count
+FROM people
+GROUP BY age;
