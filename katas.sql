@@ -190,3 +190,13 @@ SELECT
   contributors,
   REGEXP_REPLACE(address, '[0-9]' , '!', 'g') AS address
 FROM repositories
+
+
+-- GROCERY STORE: Inventory
+SELECT
+  id,
+  name,
+  stock
+FROM products
+WHERE stock <= 2 AND producent = 'CompanyA'
+ORDER BY id
