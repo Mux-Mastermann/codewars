@@ -200,3 +200,12 @@ SELECT
 FROM products
 WHERE stock <= 2 AND producent = 'CompanyA'
 ORDER BY id
+
+
+-- GROCERY STORE: Logistic Optimisation
+SELECT
+  COUNT(name) AS count_products_types,
+  producer
+FROM products
+GROUP BY producer
+ORDER BY count_products_types DESC, producer
