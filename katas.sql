@@ -224,3 +224,15 @@ SELECT t.id
 FROM top_half t
 JOIN bottom_half b ON t.id = b.id
 ORDER BY species;
+
+
+-- SQL Basics: Simple NULL handling
+SELECT
+  id,
+  coalesce(NULLIF(name, ''), '[product name not found]') AS name,
+  price,
+  coalesce(NULLIF(card_name, ''), '[card name not found]') AS card_name,
+  card_number,
+  transaction_date
+FROM eusales
+WHERE price > 50
