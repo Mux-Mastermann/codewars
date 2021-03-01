@@ -236,3 +236,14 @@ SELECT
   transaction_date
 FROM eusales
 WHERE price > 50
+
+
+-- SQL Basics: Simple HAVING
+/**
+How many people have the same age? Return groups with 10 or more.
+**/
+SELECT age, COUNT(id) AS total_people
+FROM people
+GROUP BY age
+HAVING COUNT(id) >= 10
+ORDER BY age 
