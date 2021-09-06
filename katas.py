@@ -3,7 +3,16 @@
 
 def function_test():
     """Test functions here"""
-    print(rgb(-20, 275, 125))
+    print(halving_sum(25))
+
+
+def halving_sum(n):
+    """Kata: Halving Sum """
+    x = n
+    while n != 1:
+        n = n // 2
+        x = x + n
+    return x
 
 
 def rgb(r, g, b):
